@@ -11,7 +11,10 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: FirebaseOptions(
-        messagingSenderId: '', apiKey: '', projectId: '', appId: ''),
+        messagingSenderId: '',
+        apiKey: 'AIzaSyCjLmk84tM18GXMlTAciMqlNJriIHnxf5A',
+        projectId: 'flash-chat-219ad',
+        appId: ''),
   );
   runApp(
     DevicePreview(
