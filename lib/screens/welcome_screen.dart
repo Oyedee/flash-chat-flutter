@@ -63,6 +63,7 @@ class _WelcomeScreenState extends State<WelcomeScreen>
                 ),
                 DefaultTextStyle(
                   style: TextStyle(
+                    color: Colors.black,
                     fontSize: 45.0,
                     fontWeight: FontWeight.w900,
                   ),
@@ -98,4 +99,3 @@ class _WelcomeScreenState extends State<WelcomeScreen>
     );
   }
 }
-
