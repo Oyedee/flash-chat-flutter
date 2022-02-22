@@ -21,21 +21,13 @@ class _WelcomeScreenState extends State<WelcomeScreen>
     //setup and initialize animation controller
     controller = AnimationController(
       vsync: this,
-      duration: Duration(seconds: 1),
+      duration: Duration(seconds: 2),
     );
-    animation = CurvedAnimation(
-      parent: controller,
-      curve: Curves.decelerate,
-    );
-    controller.forward(); //this will proceed our animation forward
 
-    animation.addStatusListener((status) {
-      if (status == AnimationStatus.completed) {
-        controller.reverse(from: 1);
-      } else if (status == AnimationStatus.dismissed) {
-        controller.forward();
-      }
-    });
+    animation = ColorTween(begin: Colors.blueGrey, end: Colors.white)
+        .animate(controller);
+
+    controller.forward(); //this will proceed our animation forward
 
     controller.addListener(() {
       setState(() {});
@@ -52,7 +44,7 @@ class _WelcomeScreenState extends State<WelcomeScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: animation.value,
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 24.0),
         child: Column(
@@ -65,13 +57,12 @@ class _WelcomeScreenState extends State<WelcomeScreen>
                   tag: 'logo',
                   child: Container(
                     child: Image.asset('images/logo.png'),
-                    height: animation.value * 100,
+                    height: 60,
                   ),
                 ),
                 Text(
                   'Flash Chat',
                   style: TextStyle(
-                    color: Colors.blueGrey,
                     fontSize: 45.0,
                     fontWeight: FontWeight.w900,
                   ),
